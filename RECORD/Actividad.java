@@ -6,4 +6,5 @@ class Actividad {
         this.nombre = nombre;
         this.hora = hora;
     }
+
 }
