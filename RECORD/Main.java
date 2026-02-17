@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<Actividad> lista = new ArrayList<>();
 
-        System.out.print("Ingrese tu nombre: ");
+        System.out.print("Ingresa tu nombre: ");
         Usuario usuario = new Usuario(sc.nextLine());
         usuario.saludar();
 
@@ -67,4 +67,5 @@ public class Main {
         } while (opcion != 4);
         sc.close();
     }
+
 }
