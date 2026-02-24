@@ -15,58 +15,58 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n________ MENU ________");
-            System.out.println("1) Agregar actividad");
-            System.out.println("2) Mostrar actividades");
-            System.out.println("3) Eliminar actividad");
-            System.out.println("4) Salir\n");
+            System.out.println("\n1) Agregar");
+            System.out.println("2) Mostrar");
+            System.out.println("3) Eliminar");
+            System.out.println("4) Salir");
             System.out.print("Opcion: ");
+
+            if (!sc.hasNextInt()) {
+                System.out.println("Escribe un numero.");
+                sc.nextLine();
+                continue;
+            }
+
             opcion = sc.nextInt();
             sc.nextLine();
 
             switch (opcion) {
 
                 case 1:
-                    System.out.print("Nombre de actividad: ");
+                    System.out.print("Nombre: ");
                     String nombre = sc.nextLine();
-                    System.out.print("Hora (ejem 08:00): ");
+                    System.out.print("Hora: ");
                     String hora = sc.nextLine();
                     lista.add(new Actividad(nombre, hora));
-                    System.out.println("\n/// Actividad agregada correctamente ///");
                     break;
 
                 case 2:
-                    System.out.println("Lista de actividades:");
-                    for (int i = 0; i < lista.size(); i++) {
-                        System.out.println((i + 1) + ". "
-                                + lista.get(i).nombre
-                                + " - "
-                                + lista.get(i).hora);
+                    if (lista.isEmpty()) {
+                        System.out.println("No hay actividades.");
+                    } else {
+                        for (int i = 0; i < lista.size(); i++) {
+                            System.out.println((i + 1) + ". "
+                                    + lista.get(i).getNombre()
+                                    + " - "
+                                    + lista.get(i).getHora());
+                        }
                     }
                     break;
 
                 case 3:
-                    System.out.print("Actividad a eliminar(numero): ");
-                    int num = sc.nextInt();
-                    sc.nextLine();
-                    if (num > 0 && num <= lista.size()) {
-                        lista.remove(num - 1);
-                        System.out.println("\n Actividad eliminada");
-                    } else {
-                        System.out.println("Numero invalido.");
+                    System.out.print("Numero: ");
+                    if (sc.hasNextInt()) {
+                        int num = sc.nextInt();
+                        if (num > 0 && num <= lista.size()) {
+                            lista.remove(num - 1);
+                        }
                     }
+                    sc.nextLine();
                     break;
-
-                case 4:
-                    System.out.println("Saliendo...");
-                    break;
-
-                default:
-                    System.out.println("Opcion incorrecta.");
             }
+
         } while (opcion != 4);
+
         sc.close();
     }
-
 }
-
