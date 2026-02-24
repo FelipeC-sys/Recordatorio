@@ -12,7 +12,7 @@ public class Main {
         Usuario usuario = new Usuario(sc.nextLine());
         usuario.saludar();
 
-        int opcion;
+        int opcion = 0;
 
         do {
             System.out.println("\n1) Agregar");
@@ -33,7 +33,7 @@ public class Main {
             switch (opcion) {
 
                 case 1:
-                    System.out.print("Nombre: ");
+                    System.out.print("Nombre Actividad: ");
                     String nombre = sc.nextLine();
                     System.out.print("Hora: ");
                     String hora = sc.nextLine();
