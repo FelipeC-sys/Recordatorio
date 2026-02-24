@@ -5,6 +5,9 @@ class Usuario extends Persona {
     }
 
     public void saludar() {
-        System.out.println("\n Bienvenido " + nombre);
-    }
+    System.out.println("\nBienvenido " + getNombre());
 }
+    }
+
+
+
